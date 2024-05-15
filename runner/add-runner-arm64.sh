@@ -8,6 +8,6 @@ TOKEN=$(curl -L \
   -H "X-GitHub-Api-Version: 2022-11-28" \
   https://api.github.com/repos/alexey-plotnikoff/sport-forge/actions/runners/registration-token | jq -r '.token')
 
-./config.sh --url https://github.com/alexey-plotnikoff/sport-forge --token ${TOKEN} --ephemeral --labels macbook --unattended
+./config.sh --url https://github.com/alexey-plotnikoff/sport-forge --token ${TOKEN} --ephemeral --labels macbook --unattended --disableupdate
 # Last step, run it!
 ./run.sh

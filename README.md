@@ -34,6 +34,10 @@ docker build -t nginx-webhook-receiver .
 cd ..
 ./run-webhook-receiver.sh
 ```
+For run self-hosted GitHub runner just visit:
+```
+curl -v http://127.0.0.1:10000/cgi-bin/start-runner.sh
+```
 6. [Create webhook](https://docs.github.com/en/webhooks/using-webhooks/creating-webhooks)
 7. Setup port forwarding on your router to your macbook
 8. If you not in home (for example in cafe) you can skip steps 4-7 and only run (you must run this manually on each push to your repository)
