@@ -43,5 +43,5 @@ curl -v http://127.0.0.1:10000/cgi-bin/start-runner.sh
 8. Setup port forwarding on your router to your macbook
 9. If you not in home (for example in cafe) you can skip steps 4-7 and only run (you must run this manually on each push to your repository)
 ```
-docker run --rm -d -e GITHUB_TOKEN=$GITHUB_TOKEN github-runner-ubuntu:latest
+docker run --rm -d -e GITHUB_TOKEN=$GITHUB_TOKEN -e ORGANIZATION=$ORGANIZATION -e REPO=$REPO github-runner-ubuntu:latest
 ```
