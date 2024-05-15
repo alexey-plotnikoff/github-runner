@@ -7,11 +7,11 @@ If you want to use self-hosted GitHub Runners. Currently works only on **MacOS w
 # Idea
 
 You have a free time and you want to code a little you own project. So you only need:
-1. start Docker or [OrbStack](https://orbstack.dev/).
-2. run single `nginx-webhook-receiver` container for receive GitHub's webhooks
-3. each webhook starts a new `github-runner-ubuntu` container to execute your [workflow](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions#workflows) that connects to GitHub
-4. each `github-runner-ubuntu` container will destroy after finish workflow job
-5. stop `nginx-webhook-receiver` container when you finish (via `CTRL+C` in terminal)
+1. start Docker or [OrbStack](https://orbstack.dev/);
+2. run single `nginx-webhook-receiver` container for receive GitHub's webhooks;
+3. each webhook starts a new `github-runner-ubuntu` container to execute your [workflow](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions#workflows) that connects to GitHub;
+4. each `github-runner-ubuntu` container will destroy after finish workflow job;
+5. stop `nginx-webhook-receiver` container when you finish (via `CTRL+C` in terminal).
 
 
 
