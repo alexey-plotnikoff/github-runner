@@ -22,5 +22,5 @@ RUN chmod +x /docker-entrypoint.d/40-fcgiwrap.start.sh
 COPY docker-entrypoint.d/50-init-docker.sh /docker-entrypoint.d/50-init-docker.sh
 RUN chmod +x /docker-entrypoint.d/50-init-docker.sh
 
-COPY docker-entrypoint.d/60-init-token.sh /docker-entrypoint.d/60-init-token.sh
-RUN chmod +x /docker-entrypoint.d/60-init-token.sh
+COPY docker-entrypoint.d/60-init-env.sh /docker-entrypoint.d/60-init-env.sh
+RUN chmod +x /docker-entrypoint.d/60-init-env.sh

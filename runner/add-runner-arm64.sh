@@ -6,8 +6,8 @@ TOKEN=$(curl -L \
   -H "Accept: application/vnd.github+json" \
   -H "Authorization: Bearer $GITHUB_TOKEN" \
   -H "X-GitHub-Api-Version: 2022-11-28" \
-  https://api.github.com/repos/alexey-plotnikoff/sport-forge/actions/runners/registration-token | jq -r '.token')
+  https://api.github.com/repos/$ORGANIZATION/$REPO/actions/runners/registration-token | jq -r '.token')
 
-./config.sh --url https://github.com/alexey-plotnikoff/sport-forge --token ${TOKEN} --ephemeral --labels macbook --unattended --disableupdate
+./config.sh --url https://github.com/$ORGANIZATION/$REPO --token ${TOKEN} --ephemeral --labels macbook --unattended --disableupdate
 # Last step, run it!
 ./run.sh
