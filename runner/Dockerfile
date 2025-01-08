@@ -59,7 +59,9 @@ COPY home/ubuntu/actions-runner/add-runner.sh /home/ubuntu/actions-runner/add-ru
 WORKDIR /home/ubuntu
 COPY --chown=ubuntu home/ubuntu/gradle-template/ gradle-template/
 WORKDIR /home/ubuntu/gradle-template
-RUN ./gradlew --version
+# RUN ./gradlew --version
+RUN ./gradlew wrapper --gradle-version 8.12
+RUN ./gradlew wrapper
 RUN rm -rf /home/ubuntu/gradle-template
 
 WORKDIR /home/ubuntu/actions-runner
