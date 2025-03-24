@@ -5,7 +5,9 @@ RUN echo "arch=$TARGETARCH"
 # install curl
 RUN apt update
 RUN apt install -y curl libicu-dev jq
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# For playwright
+RUN apt install -y libnss3 libnspr4
 
 # install docker
 RUN apt-get update
@@ -34,6 +36,8 @@ ENV PATH=/opt/jdk/bin:$PATH
 COPY intermediate.der /opt/jdk/
 RUN keytool -importcert -alias home -keystore $JAVA_HOME/lib/security/cacerts -storepass changeit -file /opt/jdk/intermediate.der -noprompt
 RUN rm -rf /opt/jdk/intermediate.der
+
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /home/ubuntu
 USER ubuntu
