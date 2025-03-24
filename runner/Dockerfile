@@ -6,9 +6,6 @@ RUN echo "arch=$TARGETARCH"
 RUN apt update
 RUN apt install -y curl libicu-dev jq
 
-# For playwright
-RUN apt install -y libnss3 libnspr4
-
 # install docker
 RUN apt-get update
 RUN apt-get install ca-certificates curl
@@ -66,10 +63,14 @@ WORKDIR /home/ubuntu/gradle-template
 # RUN ./gradlew --version
 RUN ./gradlew wrapper --gradle-version 8.13
 RUN ./gradlew wrapper
+# Install playwright
+USER root
+RUN cp -r /home/ubuntu/.gradle /root/.gradle
+RUN ./gradlew playwright --args="install --with-deps"
 RUN rm -rf /home/ubuntu/gradle-template
+USER ubuntu
+
 
 WORKDIR /home/ubuntu/actions-runner
 
 CMD ["./add-runner.sh"]
-
-# ENTRYPOINT ["tail", "-f", "/dev/null"]
