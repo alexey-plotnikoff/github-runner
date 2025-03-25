@@ -68,6 +68,9 @@ USER root
 RUN cp -r /home/ubuntu/.gradle /root/.gradle
 RUN ./gradlew playwright --args="install --with-deps"
 RUN rm -rf /home/ubuntu/gradle-template
+# Copy downloaded browsers to ubuntu user to avoid download twice
+RUN cp -r /root/.cache /home/ubuntu/.cache
+RUN chown -R ubuntu:ubuntu /home/ubuntu/.cache
 USER ubuntu
 
 
