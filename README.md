@@ -18,7 +18,7 @@ You have a free time and you want to code a little you own project. So you only 
 # Setup
 
 1. Generate your personal [access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
-2. Set `GITHUB_TOKEN` environment varialbe with your access token value.
+2. Set `GITHUB_TOKEN` environment variable with your access token value.
 3. Set correct `ORGANIZATION` and `REPO` values in `env` file.
 4. Build runner image (based on `ubuntu:latest`)
 ```
@@ -43,5 +43,5 @@ curl -v http://127.0.0.1:10000/cgi-bin/start-runner.sh
 8. Setup port forwarding on your router to your macbook
 9. If you not in home (for example in cafe) you can skip steps 4-7 and only run (you must run this manually on each push to your repository)
 ```
-docker run --rm -d -e GITHUB_TOKEN=$GITHUB_TOKEN -e ORGANIZATION=$ORGANIZATION -e REPO=$REPO github-runner-ubuntu:latest
+docker run --rm -d -e GITHUB_TOKEN=$GITHUB_TOKEN -e ORGANIZATION=$ORGANIZATION -e REPO=$REPO --group-add $(stat -c '%g' /var/run/docker.sock) -v /var/run/docker.sock:/var/run/docker.sock github-runner-ubuntu:latest
 ```
