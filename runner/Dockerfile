@@ -50,7 +50,7 @@ RUN if [ $TARGETARCH = "arm64" ]; then \
     ; fi
 RUN if [ $TARGETARCH = "amd64" ]; then \
         curl -o actions-runner-linux-x64-2.329.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.329.0/actions-runner-linux-x64-2.329.0.tar.gz && \
-        echo "194f1e1e4bd02f80b7e9633fc546084d8d4e19f3928a324d512ea53430102e1d ctions-runner-linux-x64-2.329.0.tar.gz" | sha256sum -c && \
+        echo "194f1e1e4bd02f80b7e9633fc546084d8d4e19f3928a324d512ea53430102e1d actions-runner-linux-x64-2.329.0.tar.gz" | sha256sum -c && \
         tar xzf ./actions-runner-linux-x64-2.329.0.tar.gz && \
         rm -rf actions-runner-linux-x64-2.329.0.tar.gz \
     ; fi
