@@ -43,16 +43,16 @@ USER ubuntu
 RUN mkdir actions-runner
 WORKDIR /home/ubuntu/actions-runner
 RUN if [ $TARGETARCH = "arm64" ]; then \
-        curl -o actions-runner-linux-arm64-2.328.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.328.0/actions-runner-linux-arm64-2.328.0.tar.gz && \
-        echo "b801b9809c4d9301932bccadf57ca13533073b2aa9fa9b8e625a8db905b5d8eb  actions-runner-linux-arm64-2.328.0.tar.gz" | sha256sum -c && \
-        tar xzf ./actions-runner-linux-arm64-2.328.0.tar.gz && \
-        rm -rf actions-runner-linux-arm64-2.328.0.tar.gz \
+        curl -o actions-runner-osx-arm64-2.329.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.329.0/actions-runner-osx-arm64-2.329.0.tar.gz && \
+        echo "50c0d409040cc52e701ac1d5afb4672cb7803a65c1292a30e96c42051dfa690f actions-runner-osx-arm64-2.329.0.tar.gz" | sha256sum -c && \
+        tar xzf ./actions-runner-osx-arm64-2.329.0.tar.gz && \
+        rm -rf actions-runner-osx-arm64-2.329.0.tar.gz \
     ; fi
 RUN if [ $TARGETARCH = "amd64" ]; then \
-        curl -o actions-runner-linux-x64-2.328.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.328.0/actions-runner-linux-x64-2.328.0.tar.gz && \
-        echo "01066fad3a2893e63e6ca880ae3a1fad5bf9329d60e77ee15f2b97c148c3cd4e  actions-runner-linux-x64-2.328.0.tar.gz" | sha256sum -c && \
-        tar xzf ./actions-runner-linux-x64-2.328.0.tar.gz && \
-        rm -rf actions-runner-linux-x64-2.328.0.tar.gz \
+        curl -o actions-runner-osx-x64-2.329.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.329.0/actions-runner-osx-x64-2.329.0.tar.gz && \
+        echo "c5a14e84b358c72ca83bf14518e004a8ad195cc440322fbca2a4fec7649035c7 actions-runner-osx-x64-2.329.0.tar.gz" | sha256sum -c && \
+        tar xzf ./actions-runner-osx-x64-2.329.0.tar.gz && \
+        rm -rf actions-runner-osx-x64-2.329.0.tar.gz \
     ; fi
 COPY home/ubuntu/actions-runner/add-runner.sh /home/ubuntu/actions-runner/add-runner.sh
 
