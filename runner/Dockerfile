@@ -4,7 +4,7 @@ ARG TARGETARCH
 RUN echo "arch=$TARGETARCH"
 # install curl
 RUN apt update
-RUN apt install -y curl libicu-dev jq
+RUN apt install -y curl libicu-dev jq openssh-client
 
 # install docker
 RUN apt-get update
