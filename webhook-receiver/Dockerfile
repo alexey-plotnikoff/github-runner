@@ -24,3 +24,6 @@ RUN chmod +x /docker-entrypoint.d/50-init-docker.sh
 
 COPY docker-entrypoint.d/60-init-env.sh /docker-entrypoint.d/60-init-env.sh
 RUN chmod +x /docker-entrypoint.d/60-init-env.sh
+
+COPY etc/nginx/ssl/nginx-selfsigned.crt /etc/nginx/ssl/nginx-selfsigned.crt
+COPY etc/nginx/ssl/nginx-selfsigned.key /etc/nginx/ssl/nginx-selfsigned.key

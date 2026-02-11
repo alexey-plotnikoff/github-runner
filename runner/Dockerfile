@@ -61,7 +61,7 @@ WORKDIR /home/ubuntu
 COPY --chown=ubuntu home/ubuntu/gradle-template/ gradle-template/
 WORKDIR /home/ubuntu/gradle-template
 # RUN ./gradlew --version
-RUN ./gradlew wrapper --gradle-version 9.3.0
+RUN ./gradlew wrapper --gradle-version 9.3.1
 RUN ./gradlew wrapper
 # Install playwright
 USER root
