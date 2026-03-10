@@ -72,6 +72,8 @@ RUN rm -rf /home/ubuntu/gradle-template
 RUN cp -r /root/.cache /home/ubuntu/.cache
 RUN chown -R ubuntu:ubuntu /home/ubuntu/.cache
 USER ubuntu
+# Set 1.44 by default for docker-java
+RUN echo api.version=1.44 >> ~/.docker-java.properties
 
 
 WORKDIR /home/ubuntu/actions-runner
