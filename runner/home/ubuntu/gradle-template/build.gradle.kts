@@ -13,5 +13,5 @@ tasks.register<JavaExec>("playwright") {
 }
 
 dependencies {
-    implementation("com.microsoft.playwright:playwright:1.62.0")
+    implementation("com.microsoft.playwright:playwright:1.64.0")
 }

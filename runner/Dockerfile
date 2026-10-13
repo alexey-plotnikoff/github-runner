@@ -20,10 +20,10 @@ RUN apt-get install -y docker-ce-cli
 WORKDIR /opt
 RUN apt-get install -y libavformat-dev libavdevice-dev python3-av
 RUN if [ $TARGETARCH = "arm64" ]; then \
-        curl -o graalvm-community.tar.gz -L https://github.com/graalvm/graalvm-ce-builds/releases/download/graal-25.2.4/graalvm-community-jdk-25i2-25.0.4_linux-aarch64_bin.tar.gz \
+        curl -o graalvm-community.tar.gz -L https://github.com/graalvm/graalvm-ce-builds/releases/download/graal-25.4.4.1.1/graalvm-community-jdk-25i4-25.0.4.1.1_linux-aarch64_bin.tar.gz \
     ; fi
 RUN if [ $TARGETARCH = "amd64" ]; then \
-        curl -o graalvm-community.tar.gz -L https://github.com/graalvm/graalvm-ce-builds/releases/download/graal-25.2.4/graalvm-community-jdk-25i2-25.0.4_linux-x64_bin.tar.gz \
+        curl -o graalvm-community.tar.gz -L https://github.com/graalvm/graalvm-ce-builds/releases/download/graal-25.4.4.1.1/graalvm-community-jdk-25i4-25.0.4.1.1_linux-x64_bin.tar.gz \
     ; fi
 RUN tar -xzf graalvm-community.tar.gz
 RUN rm -rf graalvm-community.tar.gz
@@ -43,16 +43,16 @@ USER ubuntu
 RUN mkdir actions-runner
 WORKDIR /home/ubuntu/actions-runner
 RUN if [ $TARGETARCH = "arm64" ]; then \
-        curl -o actions-runner-osx-arm64-2.336.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.336.0/actions-runner-osx-arm64-2.336.0.tar.gz && \
-        echo "8e8839c49b7060b6b2154f4931f815df330c27f167d53ef2239ee3dfce28b079 actions-runner-osx-arm64-2.336.0.tar.gz" | sha256sum -c && \
-        tar xzf ./actions-runner-osx-arm64-2.336.0.tar.gz && \
-        rm -rf actions-runner-osx-arm64-2.336.0.tar.gz \
+        curl -o actions-runner-osx-arm64-2.337.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.337.0/actions-runner-osx-arm64-2.337.0.tar.gz && \
+        echo "5a2cd92908a93d7276a194e1de6008099f3e7946f3f8e14aa7a1a7b4a31fdec2 actions-runner-osx-arm64-2.337.0.tar.gz" | sha256sum -c && \
+        tar xzf ./actions-runner-osx-arm64-2.337.0.tar.gz && \
+        rm -rf actions-runner-osx-arm64-2.337.0.tar.gz \
     ; fi
 RUN if [ $TARGETARCH = "amd64" ]; then \
-        curl -o actions-runner-linux-x64-2.336.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.336.0/actions-runner-linux-x64-2.336.0.tar.gz && \
-        echo "04cf0be1aff4c3ec3554466c39124ca250e3effd8873bb7e8d68535aa9505d5d actions-runner-linux-x64-2.336.0.tar.gz" | sha256sum -c && \
-        tar xzf ./actions-runner-linux-x64-2.336.0.tar.gz && \
-        rm -rf actions-runner-linux-x64-2.336.0.tar.gz \
+        curl -o actions-runner-linux-x64-2.337.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.337.0/actions-runner-linux-x64-2.337.0.tar.gz && \
+        echo "70920811a4f8ad4328818682bca5c6469c1c942fab52448868071d0063816613 actions-runner-linux-x64-2.337.0.tar.gz" | sha256sum -c && \
+        tar xzf ./actions-runner-linux-x64-2.337.0.tar.gz && \
+        rm -rf actions-runner-linux-x64-2.337.0.tar.gz \
     ; fi
 COPY home/ubuntu/actions-runner/add-runner.sh /home/ubuntu/actions-runner/add-runner.sh
 
@@ -61,7 +61,7 @@ WORKDIR /home/ubuntu
 COPY --chown=ubuntu home/ubuntu/gradle-template/ gradle-template/
 WORKDIR /home/ubuntu/gradle-template
 # RUN ./gradlew --version
-RUN ./gradlew wrapper --gradle-version 9.6.1
+RUN ./gradlew wrapper --gradle-version 9.7.1
 RUN ./gradlew wrapper
 # Install playwright
 USER root
